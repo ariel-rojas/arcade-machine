@@ -1,0 +1,57 @@
+// tipografía y centrado
+.titulo,.descripcion, .juegosLista{
+    font-family: $font_family_1;
+    justify-content: center;
+    align-items: center;
+}
+// ajusto el fondo de pantalla
+body{
+    background-image: url(../img/arcade_background.jpg); //va con ./
+    background-attachment: fixed;
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+// css del contenido
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .titulo{
+        padding: 1rem;
+        margin: 1rem;
+        font-size: 3.5rem;
+        animation: arcade_colores 0.25s ease-in 0s infinite;
+    }
+    .descripcion{
+        color: #ffffff;
+    }
+    .juegos{
+        padding: 1rem;
+        margin: 1rem;
+        .juegosLista{
+            color: #ffffff;
+            border: solid;
+            padding: 1rem;
+            .juego{
+                color: #ffffff;
+                border: solid;
+                padding: 1rem;font-size: 2rem;
+            }
+        }
+    }
+  }
+
+// animaciones
+@keyframes arcade_colores {
+    0%{color: #23049D;}
+    20%{color: #AA2EE6}
+    40%{color: #FF79CD}
+    60%{color:#FFDF6B}
+    80%{color: #ff0000}
+}
+// @keyframes preseleccion {
+//     0%{background-color: #ffffff; opacity: 0.5; color:orange}
+//     50%{background-color: transparent; color: #ffffff;}
+// }

@@ -1,0 +1,44 @@
+/* Reseteo global */
+* { margin: 0; padding: 0; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/* Elimina estilo predeterminado de lista en elementos ul*/
+ul { list-style: none; }
+
+/* Establece los valores predeterminados del body */
+body { min-height: 100vh; text-rendering: optimizeSpeed; line-height: 1.5; }
+
+/* Remueve margin por default */
+body, h1, h2, h3, h4, p, a { margin: 0; }
+
+/* mayor facilidad para trabajar con imagenes */
+img { max-width: 100%; display: block; }
+
+a { text-decoration: none; }
+
+.titulo, .descripcion, .juegosLista { font-family: "Press Start 2P", cursive; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+
+body { background-image: url(../img/arcade_background.jpg); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-position: center; }
+
+.contenedor { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+
+.contenedor .titulo { padding: 1rem; margin: 1rem; font-size: 3.5rem; -webkit-animation: arcade_colores 0.25s ease-in 0s infinite; animation: arcade_colores 0.25s ease-in 0s infinite; }
+
+.contenedor .descripcion { color: #ffffff; }
+
+.contenedor .juegos { padding: 1rem; margin: 1rem; }
+
+.contenedor .juegos .juegosLista { color: #ffffff; border: solid; padding: 1rem; }
+
+.contenedor .juegos .juegosLista .juego { color: #ffffff; border: solid; padding: 1rem; font-size: 2rem; }
+
+@-webkit-keyframes arcade_colores { 0% { color: #23049D; }
+  20% { color: #AA2EE6; }
+  40% { color: #FF79CD; }
+  60% { color: #FFDF6B; }
+  80% { color: #ff0000; } }
+
+@keyframes arcade_colores { 0% { color: #23049D; }
+  20% { color: #AA2EE6; }
+  40% { color: #FF79CD; }
+  60% { color: #FFDF6B; }
+  80% { color: #ff0000; } }

@@ -1,0 +1,30 @@
+/* Reseteo global */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Elimina estilo predeterminado de lista en elementos ul*/
+ul{
+    list-style: none;
+}
+/* Establece los valores predeterminados del body */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+  }
+/* Remueve margin por default */
+body,h1,h2,h3,h4,p,a{
+  margin: 0;
+}
+/* mayor facilidad para trabajar con imagenes */
+img{
+  max-width: 100%;
+  display: block;
+}
+
+a{
+  text-decoration: none;
+}
+

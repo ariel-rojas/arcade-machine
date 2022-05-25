@@ -17,7 +17,7 @@ a { text-decoration: none; }
 
 .titulo, .descripcion, .juegosLista { font-family: "Press Start 2P", cursive; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
-body { background-image: url(../img/arcade_background.jpg); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-position: center; }
+.bodyIndex { background-image: url(../img/arcade_background.jpg); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-position: center; }
 
 .contenedor { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
@@ -42,3 +42,7 @@ body { background-image: url(../img/arcade_background.jpg); background-attachmen
   40% { color: #FF79CD; }
   60% { color: #FFDF6B; }
   80% { color: #ff0000; } }
+
+.grid { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; width: 600px; height: 600px; background-color: green; }
+
+.grid div { border: solid; display: -webkit-box; display: -ms-flexbox; display: flex; height: 200px; width: 200px; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }

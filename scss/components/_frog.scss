@@ -1,0 +1,15 @@
+.grid{
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+  height: 600px;
+  background-color: green;
+  div{
+    border: solid;
+    display: flex;
+    height: 200px;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+  }
+}

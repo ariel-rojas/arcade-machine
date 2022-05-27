@@ -8,12 +8,10 @@ function preseleccion(links, n){
         if(n==m){
             links[m].style.color="orange";
             links[m].style.backgroundColor = "white";
-            links[m].style.opacity = "1";
         }
         else{
             links[m].style.color="white";
             links[m].style.backgroundColor = "transparent";
-            links[m].style.opacity = "1";
         }
     }
 

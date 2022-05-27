@@ -1,14 +1,16 @@
 .grid{
   display: flex;
+  justify-content: center;
+  margin: auto;
   flex-wrap: wrap;
-  width: 600px;
-  height: 600px;
+  width: 14rem;
+  height: 14rem;
   background-color: green;
   div{
     border: solid;
     display: flex;
-    height: 200px;
-    width: 200px;
+    height: 2rem;
+    width: 2rem;
     justify-content: center;
     align-items: center;
   }

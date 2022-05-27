@@ -1,17 +1,21 @@
 .grid{
   display: flex;
-  justify-content: center;
-  margin: auto;
   flex-wrap: wrap;
-  width: 14rem;
-  height: 14rem;
-  background-color: green;
+  width:300px;
+  height: 300px;
+  border: solid black 1px;
   div{
-    border: solid;
-    display: flex;
-    height: 2rem;
-    width: 2rem;
-    justify-content: center;
-    align-items: center;
+    height: 20px;
+    width: 20px;
+    
   }
+}
+
+.invader{
+  background-color: blue;
+  border-radius: 10px;
+}
+.shooter{
+  background-color: blueviolet;
+  border-radius: 10px;
 }

@@ -1,21 +1,34 @@
-.grid{
+.gridContainer{
   display: flex;
-  flex-wrap: wrap;
-  width:300px;
-  height: 300px;
-  border: solid black 1px;
-  div{
-    height: 20px;
-    width: 20px;
-    
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../img/arcade_background.gif);
+  background-attachment: fixed;
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  .grid{
+    display: flex;
+    flex-wrap: wrap;
+    width:40rem;
+    height: 40rem;
+    background-image: url(../img/space-background.gif);
+    background-size: cover; 
+
+    div{
+      height: 2.5rem;
+      width: 2.5rem;
+    }
   }
 }
+.nave{
+  background-image: url(../img/nave.png);
+  background-size: cover; 
 
-.invader{
-  background-color: blue;
-  border-radius: 10px;
 }
-.shooter{
-  background-color: blueviolet;
-  border-radius: 10px;
+.bala{
+  background-color: orange;
 }
+

@@ -1,67 +1,93 @@
-const grid = document.querySelector('.grid');
-let shooterIndex = 202;
-let squares = [];
-let width = 15;
-let direction = 1;
-let invadersId;
 
-
-function createBoard(){
-    for(let i=0; i<225; i++){
-        const square = document.createElement('div')
-        // square.setAttribute('id',i)
-        // square.innerHTML = 0
-        grid.appendChild(square)
-        squares.push(square)
+class Mapa {
+    // Parametros: cantidad de filas (int) y columnas (int) del mapa 
+    constructor(filas, columnas) {
+      this.filas = filas;
+      this.columnas = columnas;
     }
-}
-function range(start, end) {
-    return Array(end - start + 1).fill().map((_, idx) => start + idx)
+    crearMapa(tag){
+    // Parametro: tag HTML donde crea el mapa
+    // devuelve a su vez un array de arrays con las filas
+        let matriz = [];
+        for(let i = 0; i< this.filas; i++){
+            const fila = [];
+            for(let j=0; j< this.columnas; j++){
+                const cuadrado = document.createElement('div');
+                tag.appendChild(cuadrado);
+                fila.push(cuadrado)
+            }
+            matriz.push(fila)
+        }
+        return matriz
+    }
   }
 
-const alienInvaders = range(0, 9).concat(range(15, 24), range(30, 39))
 
-createBoard()
-function draw(){
-    for(let i=0; i<alienInvaders.length;i++){
-        squares[alienInvaders[i]].classList.add('invader')
+// creo la nave como un objeto que se puede mover a los laterales y disparar, y una funcion que interaccione con el html
+class Nave {
+    // Parametros: posicion 'x' e 'y' en el mapa
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
     }
-}
-function remove(){
-    for(let i=0; i<alienInvaders.length;i++){
-        squares[alienInvaders[i]].classList.remove('invader')
+    crearNave(grid){
+        grid[this.x][this.y].classList.add('nave')
     }
+    moverNave(dir, grid){
+        grid[this.x][this.y].classList.remove('nave');
+        this.y += dir;
+        grid[this.x][this.y].classList.add('nave');
+        }
+    disparar(){
+        let bala = new Bala(this.x - 1,this.y)
+        return bala
+    }
+  }
+
+class Bala {
+    // se mueve en linea recta hasta impactar sobre un alien 
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+    crearBala(grid){
+        grid[this.x][this.y].classList.add('bala')
+    }
+    moverBala(grid){
+        grid[this.x][this.y].classList.remove('bala');
+        this.x -= 1;
+        grid[this.x][this.y].classList.add('bala');
+        }
 }
-draw()
 
-squares[shooterIndex].classList.add('shooter')
-// muevo shooters
+// creo el mapa
+const grid = document.querySelector('.grid');
+const mapa = new Mapa(16, 16);
+matriz =mapa.crearMapa(grid);
 
 
-function moveShooter(e){
-    squares[shooterIndex].classList.remove('shooter');
+// creo la  nave
+const nave = new Nave(15,7);
+nave.crearNave(matriz)
+
+function sleep (time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+  } // no me funciona :(
+
+function teclas(e){
+    // muevo nave con flechitas izquierda y derecha
+    // disparo con flechita arriba
     switch(e.key){
         case 'ArrowLeft':
-            if (shooterIndex % width !== 0){shooterIndex -=1; break;}
+            if (nave.y > 0){nave.moverNave(-1, matriz); break;}
             else{break;}
         case 'ArrowRight':
-            if (shooterIndex % width < width - 1){shooterIndex +=1; break;} 
-            else{break;}       
-
+            if (nave.y < mapa.columnas - 1){nave.moverNave(1, matriz); break;} 
+            else{break;}    
+        case 'ArrowUp':
+            bala = nave.disparar();
+            setTimeout(() => bala.moverBala(matriz),300)
     }
-    squares[shooterIndex].classList.add('shooter');
-}
-document.addEventListener('keydown', moveShooter)
-
-// muevo aliens
-function moveInvaders(){
-    const leftEdge = alienInvaders[0] % width === 0;
-    const rightEdge = alienInvaders[alienInvaders.length] % width === width  - 1;
-    remove()
-    for(let i=0; i<alienInvaders.length;i++){
-        alienInvaders[i] += direction;
-    }
-    draw();
 }
 
-invadersId = setInterval(moveInvaders,200)
+document.addEventListener('keydown', teclas)

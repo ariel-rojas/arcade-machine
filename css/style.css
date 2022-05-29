@@ -43,10 +43,12 @@ a { text-decoration: none; }
   60% { color: #FFDF6B; }
   80% { color: #ff0000; } }
 
-.grid { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; width: 300px; height: 300px; border: solid black 1px; }
+.gridContainer { display: -webkit-box; display: -ms-flexbox; display: flex; width: 100vw; height: 100vh; background-image: url(../img/arcade_background.gif); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-position: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
-.grid div { height: 20px; width: 20px; }
+.gridContainer .grid { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; width: 40rem; height: 40rem; background-image: url(../img/space-background.gif); background-size: cover; }
 
-.invader { background-color: blue; border-radius: 10px; }
+.gridContainer .grid div { height: 2.5rem; width: 2.5rem; }
 
-.shooter { background-color: blueviolet; border-radius: 10px; }
+.nave { background-image: url(../img/nave.png); background-size: cover; }
+
+.bala { background-color: orange; }

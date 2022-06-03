@@ -39,24 +39,25 @@ class Nave {
         grid[this.x][this.y].classList.add('nave');
         }
     disparar(){
-        let bala = new Bala(this.x - 1,this.y)
-        return bala
+        let proyectil = new Proyectil(this.x - 1,this.y)
+        return proyectil
     }
   }
 
-class Bala {
+class Proyectil {
     // se mueve en linea recta hasta impactar sobre un alien 
     constructor(x, y) {
         this.x = x;
         this.y = y;
     }
-    crearBala(grid){
-        grid[this.x][this.y].classList.add('bala')
+    crearProyectil(grid){
+        grid[this.x][this.y].classList.add('proyectil')
     }
-    moverBala(grid){
-        grid[this.x][this.y].classList.remove('bala');
-        this.x -= 1;
-        grid[this.x][this.y].classList.add('bala');
+    moverProyectil(x, y, grid){
+        grid[proyectil.x][proyectil.y].classList.remove('proyectil');
+        proyectil.x -= 1;
+        grid[proyectil.x][proyectil.y].classList.add('proyectil');
+        console.log(contador)
         }
 }
 
@@ -85,9 +86,15 @@ function teclas(e){
             if (nave.y < mapa.columnas - 1){nave.moverNave(1, matriz); break;} 
             else{break;}    
         case 'ArrowUp':
-            bala = nave.disparar();
-            setTimeout(() => bala.moverBala(matriz),300)
+            contador += 1;
+            proyectiles = localStorage.setItem('proyectiles',contador)
+            proyectil = nave.disparar();
+            setInterval(proyectil.moverProyectil,300, proyectil.x, proyectil.y, matriz)
+            
+            
+
     }
 }
-
+let contador = 0;
 document.addEventListener('keydown', teclas)
+let contadorguardado = localStorage.getItem('proyectiles')

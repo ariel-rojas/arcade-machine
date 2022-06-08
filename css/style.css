@@ -51,4 +51,8 @@ a { text-decoration: none; }
 
 .nave { background-image: url(../img/nave.png); background-size: cover; }
 
-.proyectil { background-color: orange; }
+.laser { background-image: url(../img/laser.png); background-size: cover; }
+
+.alien { background-image: url(../img/alien.png); background-size: 2.5rem; background-repeat: no-repeat; }
+
+.explosion { background-image: url(../img/explosion.png); background-size: 2.5rem; background-repeat: no-repeat; }

@@ -38,28 +38,29 @@ class Nave {
         this.y += dir;
         grid[this.x][this.y].classList.add('nave');
         }
-    disparar(){
-        let proyectil = new Proyectil(this.x - 1,this.y)
-        return proyectil
+  }
+// creo a los aliens invasores
+  class Alien {
+    // Parametros: posicion 'x' e 'y' en el mapa
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+    }
+    crearAlien(grid){
+        grid[this.x][this.y].classList.add('alien')
+    }
+    moverAlien(grid){
+        if(this.y< grid.length){
+            grid[this.x][this.y].classList.remove('alien')
+            grid[this.x][this.y+1].classList.add('alien')
+                }
+        else{
+            grid[this.x][this.y].classList.remove('alien')
+            grid[this.x+1][this.y].classList.add('alien')
+        }
     }
   }
 
-class Proyectil {
-    // se mueve en linea recta hasta impactar sobre un alien 
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
-    }
-    crearProyectil(grid){
-        grid[this.x][this.y].classList.add('proyectil')
-    }
-    moverProyectil(x, y, grid){
-        grid[proyectil.x][proyectil.y].classList.remove('proyectil');
-        proyectil.x -= 1;
-        grid[proyectil.x][proyectil.y].classList.add('proyectil');
-        console.log(contador)
-        }
-}
 
 // creo el mapa
 const grid = document.querySelector('.grid');
@@ -71,11 +72,28 @@ matriz =mapa.crearMapa(grid);
 const nave = new Nave(15,7);
 nave.crearNave(matriz)
 
-function sleep (time) {
-    return new Promise((resolve) => setTimeout(resolve, time));
-  } // no me funciona :(
 
-function teclas(e){
+// creo los aliens
+
+// las listas me dicen valor inicial y final en 'x' e 'y' de las posiciones de los alines
+const aliensYIn = 3;
+const aliensYFin = 13;
+const aliensXIn = 0;
+const aliensXFin = 3;
+for(let i=aliensXIn; i<aliensXFin;i++){
+    for(let j=aliensYIn; j<aliensYFin; j++){
+        const alien = new Alien(i,j);
+        alien.crearAlien(matriz)
+    }
+}
+// hago que se muevan
+
+
+
+
+
+
+function mover(e){
     // muevo nave con flechitas izquierda y derecha
     // disparo con flechita arriba
     switch(e.key){
@@ -84,17 +102,47 @@ function teclas(e){
             else{break;}
         case 'ArrowRight':
             if (nave.y < mapa.columnas - 1){nave.moverNave(1, matriz); break;} 
-            else{break;}    
-        case 'ArrowUp':
-            contador += 1;
-            proyectiles = localStorage.setItem('proyectiles',contador)
-            proyectil = nave.disparar();
-            setInterval(proyectil.moverProyectil,300, proyectil.x, proyectil.y, matriz)
-            
-            
-
+            else{break;}
+        // case 'ArrowUp':
+        //     laserId = setInterval(moverLaser,100)
     }
 }
 let contador = 0;
-document.addEventListener('keydown', teclas)
-let contadorguardado = localStorage.getItem('proyectiles')
+document.addEventListener('keydown', mover)
+
+// ahora defino la funcion para disparar y que el laser se mueva
+function disparar(e){
+    let laserId;
+    let laserX = nave.x;
+    let laserY = nave.y ;
+    function moverLaser(grid){
+        if(grid[laserX][laserY].classList.contains('alien')){
+            grid[laserX][laserY].classList.remove('laser');
+            grid[laserX][laserY].classList.remove('alien');
+            grid[laserX][laserY].classList.add('explosion');
+            setTimeout(() => grid[laserX][laserY].classList.remove('explosion'),100)
+            clearInterval(laserId);
+        }
+        else if(laserX>0){
+            console.log(laserX)
+            grid[laserX][laserY].classList.remove('laser');
+            laserX -= 1;
+            grid[laserX][laserY].classList.add('laser');
+        }
+        else{grid[laserX][laserY].classList.remove('laser')}
+
+
+        //     setTimeout(() => grid[laserX][laserY].classList.remove('explosion'),300)
+        //     clearInterval(laserId)
+        //     // const alienRemoved = alienInvaders.indexOf(laserIndex)
+        //     // aliensRemoved.push(alienRemoved);
+        //     // results++;
+        //     // resultsDisplay.innerHTML = results
+        
+    }
+    switch(e.key){
+        case 'ArrowUp':
+            laserId = setInterval(moverLaser,100, matriz)
+    }
+}
+document.addEventListener('keydown', disparar)

@@ -76,10 +76,10 @@ nave.crearNave(matriz)
 // creo los aliens
 
 // las listas me dicen valor inicial y final en 'x' e 'y' de las posiciones de los alines
-const aliensYIn = 3;
-const aliensYFin = 13;
-const aliensXIn = 0;
-const aliensXFin = 3;
+let aliensYIn = 6;
+let aliensYFin = 16;
+let aliensXIn = 0;
+let aliensXFin = 3;
 for(let i=aliensXIn; i<aliensXFin;i++){
     for(let j=aliensYIn; j<aliensYFin; j++){
         const alien = new Alien(i,j);
@@ -87,8 +87,76 @@ for(let i=aliensXIn; i<aliensXFin;i++){
     }
 }
 // hago que se muevan
+let moverDerecha = false;
+let extremoIzquierdo = false;
+let extremoDerecho = false;
 
 
+function moverAliens(grid){
+    // si se mueven a la izquierda y no llegaron al extremo
+    if(!moverDerecha && aliensYIn >0){
+        for(let i=aliensXIn; i<aliensXFin;i++){
+            for(let j=aliensYIn; j<aliensYFin; j++){
+                if(grid[i][j].classList.contains('alien')){
+                    grid[i][j].classList.remove('alien');
+                    grid[i][j-1].classList.add('alien');
+                }
+            }
+        }
+        aliensYIn -=1;
+        aliensYFin-= 1;
+    }
+
+    // cuando venian moviendose a la izquierda y llegaron al extremo los bajo
+    else if(!moverDerecha && aliensYIn ==0){
+        for(let i=aliensXFin-1; i>=aliensXIn;i--){
+            for(let j=aliensYFin-1; j>=aliensYIn; j--){
+                if(grid[i][j].classList.contains('alien')){
+                    grid[i][j].classList.remove('alien');
+                    grid[i+1][j].classList.add('alien');
+                }
+            }
+        }
+        aliensXIn +=1;
+        aliensXFin+= 1;
+        moverDerecha= true;
+    }
+
+    // si se mueven a la derecha y no llegan al extremo
+    else if(moverDerecha && aliensYFin<grid[0].length){
+        for(let i=aliensXFin-1; i>=aliensXIn;i--){
+            for(let j=aliensYFin-1; j>=aliensYIn; j--){
+                if(grid[i][j].classList.contains('alien')){
+                    grid[i][j].classList.remove('alien');
+                    grid[i][j+1].classList.add('alien');
+                }
+            }
+        }
+        aliensYIn +=1;
+        aliensYFin+= 1;
+    }
+    // cuando venian moviendose a la derecha y llegaron al extremo los bajo
+    else if(moverDerecha && aliensYFin==grid[0].length){
+        for(let i=aliensXFin-1; i>=aliensXIn;i--){
+            for(let j=aliensYIn; j<aliensYFin; j++){
+                if(grid[i][j].classList.contains('alien')){
+                    grid[i][j].classList.remove('alien');
+                    grid[i+1][j].classList.add('alien');
+                }
+            }
+        }
+        aliensXIn +=1;
+        aliensXFin+= 1;
+        moverDerecha= false;
+    }
+
+}
+
+
+
+
+
+invadersId = setInterval(moverAliens,500, matriz)
 
 
 

@@ -66,7 +66,8 @@ class Nave {
 const grid = document.querySelector('.grid');
 const mapa = new Mapa(16, 16);
 matriz =mapa.crearMapa(grid);
-
+const marcador = document.querySelector('.marcador');
+let puntaje = 0;
 
 // creo la  nave
 const nave = new Nave(15,7);
@@ -88,9 +89,6 @@ for(let i=aliensXIn; i<aliensXFin;i++){
 }
 // hago que se muevan
 let moverDerecha = false;
-let extremoIzquierdo = false;
-let extremoDerecho = false;
-
 
 function moverAliens(grid){
     // si se mueven a la izquierda y no llegaron al extremo
@@ -106,7 +104,6 @@ function moverAliens(grid){
         aliensYIn -=1;
         aliensYFin-= 1;
     }
-
     // cuando venian moviendose a la izquierda y llegaron al extremo los bajo
     else if(!moverDerecha && aliensYIn ==0){
         for(let i=aliensXFin-1; i>=aliensXIn;i--){
@@ -121,7 +118,6 @@ function moverAliens(grid){
         aliensXFin+= 1;
         moverDerecha= true;
     }
-
     // si se mueven a la derecha y no llegan al extremo
     else if(moverDerecha && aliensYFin<grid[0].length){
         for(let i=aliensXFin-1; i>=aliensXIn;i--){
@@ -149,21 +145,15 @@ function moverAliens(grid){
         aliensXFin+= 1;
         moverDerecha= false;
     }
-
 }
 
-
-
-
-
-invadersId = setInterval(moverAliens,500, matriz)
+invadersId = setInterval(moverAliens,300, matriz)
 
 
 
 
 function mover(e){
     // muevo nave con flechitas izquierda y derecha
-    // disparo con flechita arriba
     switch(e.key){
         case 'ArrowLeft':
             if (nave.y > 0){nave.moverNave(-1, matriz); break;}
@@ -171,11 +161,8 @@ function mover(e){
         case 'ArrowRight':
             if (nave.y < mapa.columnas - 1){nave.moverNave(1, matriz); break;} 
             else{break;}
-        // case 'ArrowUp':
-        //     laserId = setInterval(moverLaser,100)
     }
 }
-let contador = 0;
 document.addEventListener('keydown', mover)
 
 // ahora defino la funcion para disparar y que el laser se mueva
@@ -188,7 +175,11 @@ function disparar(e){
             grid[laserX][laserY].classList.remove('laser');
             grid[laserX][laserY].classList.remove('alien');
             grid[laserX][laserY].classList.add('explosion');
-            setTimeout(() => grid[laserX][laserY].classList.remove('explosion'),100)
+            puntaje += 10 * (grid.length - laserX);
+            grid[laserX][laserY].innerHTML = 10 * (grid.length - laserX);
+            setTimeout(() => grid[laserX][laserY].classList.remove('explosion'),100);
+            setTimeout(() => grid[laserX][laserY].innerHTML = "",100);
+            marcador.innerHTML = puntaje;
             clearInterval(laserId);
         }
         else if(laserX>0){
@@ -198,15 +189,6 @@ function disparar(e){
             grid[laserX][laserY].classList.add('laser');
         }
         else{grid[laserX][laserY].classList.remove('laser')}
-
-
-        //     setTimeout(() => grid[laserX][laserY].classList.remove('explosion'),300)
-        //     clearInterval(laserId)
-        //     // const alienRemoved = alienInvaders.indexOf(laserIndex)
-        //     // aliensRemoved.push(alienRemoved);
-        //     // results++;
-        //     // resultsDisplay.innerHTML = results
-        
     }
     switch(e.key){
         case 'ArrowUp':

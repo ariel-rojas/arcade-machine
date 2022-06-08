@@ -43,7 +43,9 @@ a { text-decoration: none; }
   60% { color: #FFDF6B; }
   80% { color: #ff0000; } }
 
-.gridContainer { display: -webkit-box; display: -ms-flexbox; display: flex; width: 100vw; height: 100vh; background-image: url(../img/arcade_background.gif); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-position: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.gridContainer { font-family: "Press Start 2P", cursive; color: bisque; display: -webkit-box; display: -ms-flexbox; display: flex; width: 100vw; height: 100vh; background-image: url(../img/arcade_background.gif); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-position: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+
+.gridContainer .marcador { background-color: #010101; }
 
 .gridContainer .grid { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; width: 40rem; height: 40rem; background-image: url(../img/space-background.gif); background-size: cover; }
 
@@ -55,4 +57,4 @@ a { text-decoration: none; }
 
 .alien { background-image: url(../img/alien.png); background-size: 2.5rem; background-repeat: no-repeat; }
 
-.explosion { background-image: url(../img/explosion.png); background-size: 2.5rem; background-repeat: no-repeat; }
+.explosion { background-image: url(../img/explosion.png); background-size: 2.5rem; background-repeat: no-repeat; text-align: center; }

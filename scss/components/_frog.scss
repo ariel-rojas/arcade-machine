@@ -1,4 +1,6 @@
 .gridContainer{
+  font-family: $font_family_1;
+  color: bisque;
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -9,6 +11,10 @@
   background-position: center;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  .marcador{
+    background-color: rgb(1, 1, 1);
+  }
   .grid{
     display: flex;
     flex-wrap: wrap;
@@ -16,7 +22,6 @@
     height: 40rem;
     background-image: url(../img/space-background.gif);
     background-size: cover; 
-
     div{
       height: 2.5rem;
       width: 2.5rem;
@@ -41,4 +46,5 @@
   background-image: url(../img/explosion.png) ;
   background-size:2.5rem;
   background-repeat: no-repeat;
+  text-align: center;
 }

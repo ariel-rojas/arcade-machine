@@ -33,6 +33,7 @@ class Nave {
     crearNave(grid){
         grid[this.x][this.y].classList.add('nave')
     }
+    // la nave se puede mover en el eje y
     moverNave(dir, grid){
         grid[this.x][this.y].classList.remove('nave');
         this.y += dir;
@@ -170,20 +171,27 @@ function disparar(e){
     let laserId;
     let laserX = nave.x;
     let laserY = nave.y ;
+
     function moverLaser(grid){
         if(grid[laserX][laserY].classList.contains('alien')){
             grid[laserX][laserY].classList.remove('laser');
             grid[laserX][laserY].classList.remove('alien');
             grid[laserX][laserY].classList.add('explosion');
+            let source = document.getElementsByTagName('html')[0].innerHTML;
             puntaje += 10 * (grid.length - laserX);
             grid[laserX][laserY].innerHTML = 10 * (grid.length - laserX);
             setTimeout(() => grid[laserX][laserY].classList.remove('explosion'),100);
             setTimeout(() => grid[laserX][laserY].innerHTML = "",100);
             marcador.innerHTML = puntaje;
             clearInterval(laserId);
+            if(!source.includes("alien", 1)){
+                Swal.fire({
+                    title: 'Ganaste !',
+                    text: 'Sos un ganador',
+                });
+            }
         }
         else if(laserX>0){
-            console.log(laserX)
             grid[laserX][laserY].classList.remove('laser');
             laserX -= 1;
             grid[laserX][laserY].classList.add('laser');

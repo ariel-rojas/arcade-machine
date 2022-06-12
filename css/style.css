@@ -58,3 +58,7 @@ a { text-decoration: none; }
 .alien { background-image: url(../img/alien.png); background-size: 2.5rem; background-repeat: no-repeat; }
 
 .explosion { background-image: url(../img/explosion.png); background-size: 2.5rem; background-repeat: no-repeat; text-align: center; }
+
+.swal2-container.swal2-backdrop-show { font-family: "Press Start 2P", cursive; }
+
+.swal2-styled.swal2-confirm { font-family: "Press Start 2P", cursive; background-color: #430c58; }

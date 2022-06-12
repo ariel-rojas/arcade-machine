@@ -82,6 +82,7 @@ let aliensYIn = 6;
 let aliensYFin = 16;
 let aliensXIn = 0;
 let aliensXFin = 3;
+
 for(let i=aliensXIn; i<aliensXFin;i++){
     for(let j=aliensYIn; j<aliensYFin; j++){
         const alien = new Alien(i,j);
@@ -148,7 +149,7 @@ function moverAliens(grid){
     }
 }
 
-invadersId = setInterval(moverAliens,300, matriz)
+invadersId = setInterval(moverAliens,200, matriz)
 
 
 
@@ -185,10 +186,15 @@ function disparar(e){
             marcador.innerHTML = puntaje;
             clearInterval(laserId);
             if(!source.includes("alien", 1)){
-                Swal.fire({
-                    title: 'Ganaste !',
-                    text: 'Sos un ganador',
-                });
+             Swal.fire({
+                title: "Has ganado!", 
+                text: "Has conseguido "+puntaje+" puntos.", 
+                type: "success",
+                confirmButtonText: "<div class = 'button'> Volver a jugar </div>"
+              }).then((result) => {
+                // Reload the Page
+                location.reload();
+              });
             }
         }
         else if(laserX>0){
@@ -203,4 +209,4 @@ function disparar(e){
             laserId = setInterval(moverLaser,100, matriz)
     }
 }
-document.addEventListener('keydown', disparar)
+document.addEventListener('keyup', disparar)

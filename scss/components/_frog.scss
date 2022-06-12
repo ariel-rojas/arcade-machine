@@ -28,6 +28,8 @@
     }
   }
 }
+
+// nave, alien, laser disparado y efecto de explosion
 .nave{
   background-image: url(../img/nave.png);
   background-size: cover; 
@@ -47,4 +49,14 @@
   background-size:2.5rem;
   background-repeat: no-repeat;
   text-align: center;
+}
+
+
+// alert al ganar
+.swal2-container.swal2-backdrop-show {
+  font-family: $font_family_1;
+}
+.swal2-styled.swal2-confirm{
+  font-family: $font_family_1;
+  background-color: rgb(67, 12, 88);
 }

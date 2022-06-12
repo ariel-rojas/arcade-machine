@@ -183,7 +183,7 @@ function disparar(e){
             grid[laserX][laserY].innerHTML = 10 * (grid.length - laserX);
             setTimeout(() => grid[laserX][laserY].classList.remove('explosion'),100);
             setTimeout(() => grid[laserX][laserY].innerHTML = "",100);
-            marcador.innerHTML = puntaje;
+            marcador.innerHTML = "Puntaje: " + puntaje;
             clearInterval(laserId);
             if(!source.includes("alien", 1)){
              Swal.fire({

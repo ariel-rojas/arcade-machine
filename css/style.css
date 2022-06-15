@@ -45,8 +45,6 @@ a { text-decoration: none; }
 
 .gridContainer { font-family: "Press Start 2P", cursive; color: bisque; display: -webkit-box; display: -ms-flexbox; display: flex; width: 100vw; height: 100vh; background-image: url(../img/arcade_background.gif); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-position: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
 
-.gridContainer .marcador { background-color: #010101; }
-
 .gridContainer .grid { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; width: 30rem; height: 30rem; background-image: url(../img/space-background.gif); background-size: cover; }
 
 .gridContainer .grid div { height: 1.875rem; width: 1.875rem; }
@@ -62,3 +60,9 @@ a { text-decoration: none; }
 .swal2-container.swal2-backdrop-show { font-family: "Press Start 2P", cursive; }
 
 .swal2-styled.swal2-confirm { font-family: "Press Start 2P", cursive; background-color: #430c58; }
+
+.contenedorManzanas { font-family: "Press Start 2P", cursive; color: bisque; display: -webkit-box; display: -ms-flexbox; display: flex; width: 100vw; height: 100vh; background-image: url(../img/arcade_background.gif); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-position: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+
+.contenedorManzanas .grid { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; width: 20rem; height: 20rem; }
+
+.contenedorManzanas .grid .manzana { background-image: url(../img/laser.png); height: 4rem; width: 4rem; }

@@ -13,6 +13,12 @@ body {
     min-height: 100vh;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
+/* seteo el background del body */
+    background-image: url(../img/arcade_background.gif);
+    background-attachment: fixed;
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center;
   }
 /* Remueve margin por default */
 body,h1,h2,h3,h4,p,a{

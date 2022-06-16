@@ -5,7 +5,7 @@
 ul { list-style: none; }
 
 /* Establece los valores predeterminados del body */
-body { min-height: 100vh; text-rendering: optimizeSpeed; line-height: 1.5; }
+body { min-height: 100vh; text-rendering: optimizeSpeed; line-height: 1.5; /* seteo el background del body */ background-image: url(../img/arcade_background.gif); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-position: center; }
 
 /* Remueve margin por default */
 body, h1, h2, h3, h4, p, a { margin: 0; }
@@ -61,8 +61,10 @@ a { text-decoration: none; }
 
 .swal2-styled.swal2-confirm { font-family: "Press Start 2P", cursive; background-color: #430c58; }
 
-.contenedorManzanas { font-family: "Press Start 2P", cursive; color: bisque; display: -webkit-box; display: -ms-flexbox; display: flex; width: 100vw; height: 100vh; background-image: url(../img/arcade_background.gif); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-position: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+.contenedorManzanas { font-family: "Press Start 2P", cursive; color: bisque; display: -webkit-box; display: -ms-flexbox; display: flex; width: 100vw; height: 100vh; background-attachment: fixed; background-repeat: no-repeat; background-position: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
 
 .contenedorManzanas .grid { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; width: 20rem; height: 20rem; }
 
-.contenedorManzanas .grid .manzana { background-image: url(../img/manzana.png); height: 4rem; width: 4rem; }
+.manzana { background-image: url(../img/manzana.png); height: 4rem; width: 4rem; background-color: green; background-size: 3rem 3rem; background-repeat: no-repeat; background-position: center; }
+
+.manzanaMordida { background-image: url(../img/manzana-mordida.png); height: 4rem; width: 4rem; background-color: grey; background-size: 3rem 3rem; background-repeat: no-repeat; background-position: center; }

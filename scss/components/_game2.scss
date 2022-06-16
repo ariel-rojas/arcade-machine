@@ -1,0 +1,40 @@
+
+.contenedorManzanas{
+    font-family: $font_family_1;
+    color: bisque;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-attachment: fixed;
+    background-repeat: no-repeat; 
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .grid{
+    display: flex;
+    flex-wrap: wrap;
+    width:20rem;
+    height: 20rem;
+  
+    }
+  }
+  
+.manzana{
+    background-image: url(../img/manzana.png);
+    height: 4rem;
+    width: 4rem;
+    background-color: green;
+    background-size: 3rem 3rem; 
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+.manzanaMordida{
+    background-image: url(../img/manzana-mordida.png);
+    height: 4rem;
+    width: 4rem;
+    background-color: grey;
+    background-size: 3rem 3rem; 
+    background-repeat: no-repeat; 
+    background-position: center;
+}

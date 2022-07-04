@@ -18,9 +18,9 @@
         <title>Juego de las manzanas</title>
     </head>
 <body>
-    <section class="contenedorManzanas">
+    <section class="contenedorInvasores">
         <h1 class="marcador">
-            Manzanas disponibles: 20
+            Invasores vivos: 20
         </h1>
         <h2 class="turnoDe">
             Es tu turno
@@ -30,13 +30,17 @@
         <button class="turnos">
             Terminar turno
         </button>
-        <p id = "manzanasElegidas">
-            No has comido ninguna manzana
+        <p id = "invasoresElegidos">
+            Puedes disparar hasta 3 invasores por turno
+        </p>
+        <p>
+            Gana el que dispare al último invasor en su turno
         </p>
     </section>
 
-
+    <!-- Sweet Alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Código del juego -->
-    <script src="../js/game2.js" charset="utf-8"></script>
+    <script src="../js/shootinvader.js" charset="utf-8"></script>
 </body>
 </html>

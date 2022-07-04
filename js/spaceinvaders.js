@@ -70,6 +70,12 @@ matriz =mapa.crearMapa(grid);
 const marcador = document.querySelector('.marcador');
 let puntaje = 0;
 
+// el record se guarda en el localStorage
+let puntajeRecord = localStorage.getItem("record") || 0;  //asignación condicional
+let record = document.getElementById("record");
+record.innerHTML = "Record máximo: " + puntajeRecord;
+
+localStorage.setItem("record",puntajeRecord)
 // creo la  nave
 const nave = new Nave(15,7);
 nave.crearNave(matriz)
@@ -118,6 +124,17 @@ function moverAliens(grid){
         }
         aliensXIn +=1;
         aliensXFin+= 1;
+        if(aliensXFin == 16){
+            Swal.fire({
+                title: "Perdiste!", 
+                text: "Los invasores lograron ingresar", 
+                type: "success",
+                confirmButtonText: "<div class = 'button'> Volver a jugar </div>"
+              }).then((result) => {
+                // Reload the Page
+                location.reload();
+              });
+        }
         moverDerecha= true;
     }
     // si se mueven a la derecha y no llegan al extremo
@@ -145,6 +162,17 @@ function moverAliens(grid){
         }
         aliensXIn +=1;
         aliensXFin+= 1;
+        if(aliensXFin == 16){
+            Swal.fire({
+                title: "Perdiste!", 
+                text: "Los invasores lograron ingresar", 
+                type: "success",
+                confirmButtonText: "<div class = 'button'> Volver a jugar </div>"
+              }).then((result) => {
+                // Reload the Page
+                location.reload();
+              });
+        }
         moverDerecha= false;
     }
 }
@@ -181,8 +209,8 @@ function disparar(e){
             let source = document.getElementsByTagName('html')[0].innerHTML;
             puntaje += 10 * (grid.length - laserX);
             grid[laserX][laserY].innerHTML = 10 * (grid.length - laserX);
-            setTimeout(() => grid[laserX][laserY].classList.remove('explosion'),100);
-            setTimeout(() => grid[laserX][laserY].innerHTML = "",100);
+            setTimeout(() => grid[laserX][laserY].classList.remove('explosion'),150);
+            setTimeout(() => grid[laserX][laserY].innerHTML = "",150);
             marcador.innerHTML = "Puntaje: " + puntaje;
             clearInterval(laserId);
             if(!source.includes("alien", 1)){
@@ -195,6 +223,11 @@ function disparar(e){
                 // Reload the Page
                 location.reload();
               });
+              if(puntaje>puntajeRecord){
+                puntajeRecord = puntaje;
+                record.innerHTML = "Record máximo: " + puntajeRecord;
+                localStorage.setItem("record",puntajeRecord)
+              }
             }
         }
         else if(laserX>0){

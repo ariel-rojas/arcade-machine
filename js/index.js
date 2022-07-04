@@ -1,20 +1,21 @@
 
 // agarro los links en un array
-let linkJuegos = document.getElementsByClassName("juego");
+let linkJuegos = document.getElementsByClassName("gameLink");
 
 // funcion que visualiza en que juego estoy posicionado
 function preseleccion(links, n){
     for(let m=0;m<links.length; m++){
         if(n==m){
-            links[m].style.color="orange";
-            links[m].style.backgroundColor = "white";
+            links[m].style.color="#AA2EE6";
         }
         else{
             links[m].style.color="white";
-            links[m].style.backgroundColor = "transparent";
         }
     }
 
+}
+function ingresar(links,n){
+    links[n].click();
 }
 // me desplazo con las flechitas arriba y abajo
 let i = 0
@@ -29,19 +30,17 @@ window.addEventListener('keydown', (e) => {
                 break;
             }
         case 'ArrowDown':
-            if(i<2){
+            if(i<1){
                 i+=1;break;
             }
             else{
                 break;
             }
+        case 'Enter' :
+            e.preventDefault();
+            ingresar(linkJuegos,i)
     }
     preseleccion(linkJuegos,i)
-    
-    if (e.key === "Enter"){
-        e.preventDefault();
-        alert(linkJuegos[i].innerText + " se habilitará próximamente! Intente de nuevo más tarde")
-    }
 })
 
 

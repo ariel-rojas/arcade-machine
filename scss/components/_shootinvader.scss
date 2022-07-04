@@ -1,5 +1,5 @@
 
-.contenedorManzanas{
+.contenedorInvasores{
     font-family: $font_family_1;
     color: bisque;
     display: flex;
@@ -20,21 +20,36 @@
     }
   }
   
-.manzana{
-    background-image: url(../img/manzana.png);
+.invasor{
+    background-image: url(../img/alien.png);
     height: 4rem;
     width: 4rem;
-    background-color: green;
+    background-color:#23049D;
     background-size: 3rem 3rem; 
     background-repeat: no-repeat; 
     background-position: center;
 }
-.manzanaMordida{
-    background-image: url(../img/manzana-mordida.png);
+.invasorDisparado{
+    background-image: url(../img/explosion.png);
     height: 4rem;
     width: 4rem;
-    background-color: grey;
+    background-color:#23049D;
     background-size: 3rem 3rem; 
     background-repeat: no-repeat; 
     background-position: center;
+}
+.turnos{
+    padding:1rem;
+    margin: 1rem;
+    font-family: $font_family_1;
+    background-color: #7066e0;
+    color: white;
+    border: solid #b7b2ef;
+    border-radius: 0.2rem;
+    &:hover{
+        background-color:#655cc9 ;
+    }
+    &:active{
+        background-color: #5a52b3;
+    }
 }

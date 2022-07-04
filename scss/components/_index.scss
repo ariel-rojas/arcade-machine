@@ -25,17 +25,21 @@
         animation: arcade_colores 0.25s ease-in 0s infinite;
     }
     .descripcion{
+        margin: 1rem;
+        padding: 1rem;
         color: #ffffff;
     }
-    .juegos{
-        padding: 1rem;
-        margin: 1rem;
-        .juegosLista{
-            color: #ffffff;
-            padding: 1rem;
-            .juego{
-                color: #ffffff;
-                padding: 1rem;font-size: 2rem;
+    .games{
+        .gamesList{
+            font-size: 1.5rem;
+            color:#AA2EE6;
+            font-family: $font_family_1;
+            margin: 2rem;
+            background-color: #23049D;
+            text-align: center;
+            li{
+                margin: 1rem;
+                padding: 1rem;
             }
         }
     }
@@ -49,7 +53,4 @@
     60%{color:#FFDF6B}
     80%{color: #ff0000}
 }
-// @keyframes preseleccion {
-//     0%{background-color: #ffffff; opacity: 0.5; color:orange}
-//     50%{background-color: transparent; color: #ffffff;}
-// }
+

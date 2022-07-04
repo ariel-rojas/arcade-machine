@@ -31,22 +31,25 @@
 .nave{
   background-image: url(../img/nave.png);
   background-size: cover; 
+  background-repeat: no-repeat;
 
 }
 .laser{
   background-image: url(../img/laser.png) ;
   background-size: cover; 
+  background-repeat: no-repeat;
 }
 .alien{
   background-image: url(../img/alien.png) ;
-  background-size:2.5rem;
+  background-size:cover;
   background-repeat: no-repeat;
 }
 .explosion{
   background-image: url(../img/explosion.png) ;
-  background-size:2.5rem;
+  background-size:2.3rem;
   background-repeat: no-repeat;
   text-align: center;
+  background-size: cover; 
 }
 
 
@@ -56,6 +59,5 @@
 }
 .swal2-styled.swal2-confirm{
   font-family: $font_family_1;
-  background-color: rgb(67, 12, 88);
 }
 

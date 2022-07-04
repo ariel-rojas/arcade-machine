@@ -1,70 +1,285 @@
 /* Reseteo global */
-* { margin: 0; padding: 0; -webkit-box-sizing: border-box; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
 
 /* Elimina estilo predeterminado de lista en elementos ul*/
-ul { list-style: none; }
+ul {
+  list-style: none;
+}
 
 /* Establece los valores predeterminados del body */
-body { min-height: 100vh; text-rendering: optimizeSpeed; line-height: 1.5; /* seteo el background del body */ background-image: url(../img/arcade_background.gif); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-position: center; }
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  /* seteo el background del body */
+  background-image: url(../img/arcade_background.gif);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 /* Remueve margin por default */
-body, h1, h2, h3, h4, p, a { margin: 0; }
+body, h1, h2, h3, h4, p, a {
+  margin: 0;
+}
 
 /* mayor facilidad para trabajar con imagenes */
-img { max-width: 100%; display: block; }
+img {
+  max-width: 100%;
+  display: block;
+}
 
-a { text-decoration: none; }
+a {
+  text-decoration: none;
+}
 
-.titulo, .descripcion, .juegosLista { font-family: "Press Start 2P", cursive; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.titulo, .descripcion, .juegosLista {
+  font-family: "Press Start 2P", cursive;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
 
-.bodyIndex { background-image: url(../img/arcade_background.gif); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-position: center; }
+.bodyIndex {
+  background-image: url(../img/arcade_background.gif);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-.contenedor { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.contenedor {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
 
-.contenedor .titulo { padding: 1rem; margin: 1rem; font-size: 3.5rem; -webkit-animation: arcade_colores 0.25s ease-in 0s infinite; animation: arcade_colores 0.25s ease-in 0s infinite; }
+.contenedor .titulo {
+  padding: 1rem;
+  margin: 1rem;
+  font-size: 3.5rem;
+  -webkit-animation: arcade_colores 0.25s ease-in 0s infinite;
+          animation: arcade_colores 0.25s ease-in 0s infinite;
+}
 
-.contenedor .descripcion { color: #ffffff; }
+.contenedor .descripcion {
+  margin: 1rem;
+  padding: 1rem;
+  color: #ffffff;
+}
 
-.contenedor .juegos { padding: 1rem; margin: 1rem; }
+.contenedor .games .gamesList {
+  font-size: 1.5rem;
+  color: #AA2EE6;
+  font-family: "Press Start 2P", cursive;
+  margin: 2rem;
+  background-color: #23049D;
+  text-align: center;
+}
 
-.contenedor .juegos .juegosLista { color: #ffffff; padding: 1rem; }
+.contenedor .games .gamesList li {
+  margin: 1rem;
+  padding: 1rem;
+}
 
-.contenedor .juegos .juegosLista .juego { color: #ffffff; padding: 1rem; font-size: 2rem; }
+@-webkit-keyframes arcade_colores {
+  0% {
+    color: #23049D;
+  }
+  20% {
+    color: #AA2EE6;
+  }
+  40% {
+    color: #FF79CD;
+  }
+  60% {
+    color: #FFDF6B;
+  }
+  80% {
+    color: #ff0000;
+  }
+}
 
-@-webkit-keyframes arcade_colores { 0% { color: #23049D; }
-  20% { color: #AA2EE6; }
-  40% { color: #FF79CD; }
-  60% { color: #FFDF6B; }
-  80% { color: #ff0000; } }
+@keyframes arcade_colores {
+  0% {
+    color: #23049D;
+  }
+  20% {
+    color: #AA2EE6;
+  }
+  40% {
+    color: #FF79CD;
+  }
+  60% {
+    color: #FFDF6B;
+  }
+  80% {
+    color: #ff0000;
+  }
+}
 
-@keyframes arcade_colores { 0% { color: #23049D; }
-  20% { color: #AA2EE6; }
-  40% { color: #FF79CD; }
-  60% { color: #FFDF6B; }
-  80% { color: #ff0000; } }
+.gridContainer {
+  font-family: "Press Start 2P", cursive;
+  color: bisque;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../img/arcade_background.gif);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
 
-.gridContainer { font-family: "Press Start 2P", cursive; color: bisque; display: -webkit-box; display: -ms-flexbox; display: flex; width: 100vw; height: 100vh; background-image: url(../img/arcade_background.gif); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-position: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+.gridContainer .grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 30rem;
+  height: 30rem;
+  background-image: url(../img/space-background.gif);
+  background-size: cover;
+}
 
-.gridContainer .grid { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; width: 30rem; height: 30rem; background-image: url(../img/space-background.gif); background-size: cover; }
+.gridContainer .grid div {
+  height: 1.875rem;
+  width: 1.875rem;
+}
 
-.gridContainer .grid div { height: 1.875rem; width: 1.875rem; }
+.nave {
+  background-image: url(../img/nave.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
-.nave { background-image: url(../img/nave.png); background-size: cover; }
+.laser {
+  background-image: url(../img/laser.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
-.laser { background-image: url(../img/laser.png); background-size: cover; }
+.alien {
+  background-image: url(../img/alien.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
-.alien { background-image: url(../img/alien.png); background-size: 2.5rem; background-repeat: no-repeat; }
+.explosion {
+  background-image: url(../img/explosion.png);
+  background-size: 2.3rem;
+  background-repeat: no-repeat;
+  text-align: center;
+  background-size: cover;
+}
 
-.explosion { background-image: url(../img/explosion.png); background-size: 2.5rem; background-repeat: no-repeat; text-align: center; }
+.swal2-container.swal2-backdrop-show {
+  font-family: "Press Start 2P", cursive;
+}
 
-.swal2-container.swal2-backdrop-show { font-family: "Press Start 2P", cursive; }
+.swal2-styled.swal2-confirm {
+  font-family: "Press Start 2P", cursive;
+}
 
-.swal2-styled.swal2-confirm { font-family: "Press Start 2P", cursive; background-color: #430c58; }
+.contenedorInvasores {
+  font-family: "Press Start 2P", cursive;
+  color: bisque;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
 
-.contenedorManzanas { font-family: "Press Start 2P", cursive; color: bisque; display: -webkit-box; display: -ms-flexbox; display: flex; width: 100vw; height: 100vh; background-attachment: fixed; background-repeat: no-repeat; background-position: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+.contenedorInvasores .grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 20rem;
+  height: 20rem;
+}
 
-.contenedorManzanas .grid { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; width: 20rem; height: 20rem; }
+.invasor {
+  background-image: url(../img/alien.png);
+  height: 4rem;
+  width: 4rem;
+  background-color: #23049D;
+  background-size: 3rem 3rem;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-.manzana { background-image: url(../img/manzana.png); height: 4rem; width: 4rem; background-color: green; background-size: 3rem 3rem; background-repeat: no-repeat; background-position: center; }
+.invasorDisparado {
+  background-image: url(../img/explosion.png);
+  height: 4rem;
+  width: 4rem;
+  background-color: #23049D;
+  background-size: 3rem 3rem;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-.manzanaMordida { background-image: url(../img/manzana-mordida.png); height: 4rem; width: 4rem; background-color: grey; background-size: 3rem 3rem; background-repeat: no-repeat; background-position: center; }
+.turnos {
+  padding: 1rem;
+  margin: 1rem;
+  font-family: "Press Start 2P", cursive;
+  background-color: #7066e0;
+  color: white;
+  border: solid #b7b2ef;
+  border-radius: 0.2rem;
+}
+
+.turnos:hover {
+  background-color: #655cc9;
+}
+
+.turnos:active {
+  background-color: #5a52b3;
+}

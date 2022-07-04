@@ -43,7 +43,6 @@ function disparoAsincronico(seconds) {
       invasorElegido =  document.getElementById(invasoresIds[random]);
       invasorElegido.className = "invasorDisparado";
       invasoresIds = invasoresIds.filter(number => number != invasoresIds[random]);
-      
       total -=1;
       marcador.innerText = "Invasores vivos: "+ total;
       if(total ==0){
@@ -64,7 +63,6 @@ function disparoAsincronico(seconds) {
 async function disparo(seconds) {
   await disparoAsincronico(seconds);
 }
-
 let n = 0
 document.addEventListener('click', (e) => {
   if(e.target.id == "instrucciones"){

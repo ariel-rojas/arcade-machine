@@ -266,7 +266,7 @@ a {
   background-position: center;
 }
 
-.turnos {
+.boton {
   padding: 1rem;
   margin: 1rem;
   font-family: "Press Start 2P", cursive;
@@ -276,10 +276,10 @@ a {
   border-radius: 0.2rem;
 }
 
-.turnos:hover {
+.boton:hover {
   background-color: #655cc9;
 }
 
-.turnos:active {
+.boton:active {
   background-color: #5a52b3;
 }

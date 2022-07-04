@@ -67,6 +67,14 @@ async function disparo(seconds) {
 
 let n = 0
 document.addEventListener('click', (e) => {
+  if(e.target.id == "instrucciones"){
+    Swal.fire(
+      '¿Cómo se juega?',
+      'Cada jugador puede disparar a 1,2 o 3 invasores en su turno. \n \n Gana el que dispare al último invasor.',
+      'question'
+      
+    )
+  }
   if(e.target.className == "invasor" && n<3){
     invasorElegido = document.getElementById(e.target.id);
     invasorElegido.className = "invasorDisparado";
@@ -78,10 +86,10 @@ document.addEventListener('click', (e) => {
   else if(e.target.className == "invasor" && n==3){
     elegidos.innerText= "Ya disparaste a 3 invasores, finaliza el turno"
   }
-  else if(e.target.className == "turnos" && n==0){
+  else if(e.target.id == "turnos" && n==0){
     elegidos.innerText= "Todavía no disparaste"
   }
-  else if(e.target.className == "turnos"){
+  else if(e.target.id == "turnos"){
     // turnoDe.innerText = "Es turno de tu adversario";
     let m = 4 - n;
     for(let i = 1; i<=m;i++){

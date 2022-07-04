@@ -46,6 +46,17 @@ function disparoAsincronico(seconds) {
       
       total -=1;
       marcador.innerText = "Invasores vivos: "+ total;
+      if(total ==0){
+        Swal.fire({
+          title: "Has perdido!", 
+          text: "Tu adversario eliminó al último invasor.", 
+          type: "success",
+          confirmButtonText: "<div class = 'button'> Volver a jugar </div>"
+        }).then((result) => {
+          // Recarga la página
+          location.reload();
+        });
+      }
       resolve();
     }, seconds * 1000);
   });
@@ -78,17 +89,6 @@ document.addEventListener('click', (e) => {
       elegidos.innerText= "Tu adversario disparó a "+m+" invasores"
     }
     n=0;
-    if(total ==0){
-      Swal.fire({
-        title: "Has perdido!", 
-        text: "Tu adversario eliminó al último invasor.", 
-        type: "success",
-        confirmButtonText: "<div class = 'button'> Volver a jugar </div>"
-      }).then((result) => {
-        // Recarga la página
-        location.reload();
-      });
-    }
   }
 })
 
